@@ -84,7 +84,7 @@ The frontend of the Timesync project is built using React, TypeScript, and MUI w
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/himanshuk09/TimeSync.git
+   git clone https://github.com/himanshuk09/TimeSync-fe.git
    cd timesync-frontend
 
    ```
