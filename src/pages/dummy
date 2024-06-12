@@ -1,0 +1,492 @@
+html,
+body,
+body > div {
+  /* the react root */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+ul {
+  margin: 0;
+  padding: 0 0 0 1.5em;
+}
+
+li {
+  margin: 1.5em 0;
+  padding: 0;
+}
+
+b {
+  /* used for event dates/times */
+  margin-right: 3px;
+}
+
+.demo-app {
+  display: flex;
+  min-height: 100%;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.demo-app-sidebar {
+  width: 300px;
+  line-height: 1.5;
+  background: #eaf9ff;
+  border-right: 1px solid #d3e2e8;
+}
+
+.demo-app-sidebar-section {
+  padding: 2em;
+}
+
+.demo-app-main {
+  flex-grow: 1;
+  padding: 3em;
+}
+
+.fc {
+  /* the calendar root */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* timetable */
+
+/*
+
+Darko Bunic
+http://www.redips.net/
+Mar, 2011.
+
+*/
+
+body {
+  font-family: arial;
+  margin: 0px; /* for IE6 / IE7 */
+}
+
+/* drag container */
+
+/* container for the left table */
+#left {
+  width: 130px;
+  height: 320px;
+  float: left;
+  margin-right: 20px;
+}
+/* container for the main table and message line below */
+#right {
+  width: 900px;
+  padding-left: auto;
+  padding-right: 0px;
+  /* align div to the right */
+  /* margin-left: auto; */
+}
+
+/* drag objects (DIV inside table cells) */
+.redips-drag {
+  cursor: move;
+  margin: auto;
+  z-index: 10;
+  color: #222;
+  text-align: center;
+  font-size: 10pt; /* needed for cloned object */
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  /* without width, IE6/7 will not apply filter/opacity to the element ?! */
+  /* IE needs element layout */
+  /* width: 87px; */
+  /* height: 20px; */
+  line-height: 20px;
+  /* border */
+  border: 1px solid #555;
+  /* round corners */
+  border-radius: 3px;
+  -moz-border-radius: 3px; /* FF */
+  display: flex !important;
+}
+
+/* tables */
+div#redips-drag table {
+  background-color: #e4e4e4;
+  border-collapse: collapse;
+}
+/* timetable */
+/* div#drag #table2 { */
+/* align table to the right */
+/* margin-left: auto; */
+/* } */
+
+/* table cells */
+div#redips-drag td {
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  height: 32px;
+  text-align: center;
+  font-size: 10pt;
+  padding: 2px;
+}
+/* overwrite border settings for left tables */
+/* set all borders to 0px except border-bottom */
+div#redips-drag #table1 td {
+  border-width: 0px 0px 1px 0px;
+}
+/* styles for clone DIV elements in left table */
+div#redips-drag #table1 div {
+  margin-left: 5px;
+  /* float: left; */
+}
+/* define styles for buttons */
+div#redips-drag #table1 input {
+  float: right;
+  width: 15px;
+  height: 23px;
+  margin-right: 5px;
+  border-width: 1px;
+  /* round corners */
+  border-radius: 3px;
+  /* default visibility is hidden */
+  visibility: hidden;
+}
+
+/* subject colors */
+.ar {
+  background-color: #aac8e2;
+}
+.bi {
+  background-color: #e7d783;
+}
+.ch {
+  background-color: #e99ae6;
+}
+.en {
+  background-color: #c4afff;
+}
+.et {
+  background-color: #91dec5;
+}
+.hi {
+  background-color: #cfe17f;
+}
+.it {
+  background-color: #e7bd83;
+}
+.ma {
+  background-color: #ffc5c2;
+}
+.ph {
+  background-color: #a5f09d;
+}
+
+/* blank cells (upper left corner) */
+.blank {
+  background-color: white;
+}
+
+/* background color for lunch */
+.lunch {
+  color: #665;
+  background-color: #f8eeee;
+}
+
+/* trash cell */
+.redips-trash {
+  color: white;
+  background-color: #6386bd;
+}
+
+/* message line */
+#message {
+  color: white;
+  background-color: #aaa;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* dark cells (first column and table header) */
+.dark {
+  color: #444;
+  background-color: #e0e0e0;
+}
+
+.button_container {
+  padding-top: 10px;
+  text-align: right;
+}
+
+/* "Save" button */
+.button_container input {
+  background-color: #6a93d4;
+  color: white;
+  border-width: 1px;
+  width: 40px;
+  padding: 0px;
+}
+
+
+      
+ 
+{
+  "Monday": {
+      "P1": {
+          "subjectId": "65fc204b004281106d04ff4c",
+          "day": "Monday",
+          "period": "P1",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ffb004281106d04ff41"
+      },
+      "P2": {
+          "subjectId": "65fc203f004281106d04ff49",
+          "day": "Monday",
+          "period": "P2",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fd4fc80bf750684aa86eb8"
+      },
+      "P3": {
+          "subjectId": "65fc204b004281106d04ff4c",
+          "day": "Monday",
+          "period": "P3",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fd4fc80bf750684aa86eb8"
+      },
+      "P4": {
+          "subjectId": "65fc205a004281106d04ff4f",
+          "day": "Monday",
+          "period": "P4",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fd4fc80bf750684aa86eb8"
+      },
+      "P5": {
+          "subjectId": "65faa784712a5f11a8fe7e40",
+          "day": "Monday",
+          "period": "P5",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P6": {
+          "subjectId": "65faa784712a5f11a8fe7e40",
+          "day": "Monday",
+          "period": "P6",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P7": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Monday",
+          "period": "P7",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      }
+  },
+  "Tuesday": {
+      "P1": {
+          "subjectId": "65fc2077004281106d04ff55",
+          "day": "Tuesday",
+          "period": "P1",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "66051a447bdc19bfe313a212"
+      },
+      "P2": {
+          "subjectId": "65fc204b004281106d04ff4c",
+          "day": "Tuesday",
+          "period": "P2",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ffb004281106d04ff41"
+      },
+      "P3": {
+          "subjectId": "65fc203f004281106d04ff49",
+          "day": "Tuesday",
+          "period": "P3",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ffb004281106d04ff41"
+      },
+      "P4": {
+          "subjectId": "65fc204b004281106d04ff4c",
+          "day": "Tuesday",
+          "period": "P4",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ffb004281106d04ff41"
+      },
+      "P5": {
+          "subjectId": "65fc204b004281106d04ff4c",
+          "day": "Tuesday",
+          "period": "P5",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ffb004281106d04ff41"
+      },
+      "P6": {
+          "subjectId": "65fc203f004281106d04ff49",
+          "day": "Tuesday",
+          "period": "P6",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ffb004281106d04ff41"
+      },
+      "P7": {
+          "subjectId": "65fc203f004281106d04ff49",
+          "day": "Tuesday",
+          "period": "P7",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ffb004281106d04ff41"
+      }
+  },
+  "Wednesday": {
+      "P7": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Wednesday",
+          "period": "P7",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P6": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Wednesday",
+          "period": "P6",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P5": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Wednesday",
+          "period": "P5",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P4": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Wednesday",
+          "period": "P4",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P3": {
+          "teacherId": "65fc1ee6004281106d04fef0",
+          "day": "Wednesday",
+          "period": "P3",
+          "classId": "65f990d84823670a61600d1e",
+          "subjectId": "65fc2030004281106d04ff46"
+      },
+      "P2": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Wednesday",
+          "period": "P2",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P1": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Wednesday",
+          "period": "P1",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      }
+  },
+  "Thursday": {
+      "P1": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Thursday",
+          "period": "P1",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P2": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Thursday",
+          "period": "P2",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P3": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Thursday",
+          "period": "P3",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P4": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Thursday",
+          "period": "P4",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P5": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Thursday",
+          "period": "P5",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P6": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Thursday",
+          "period": "P6",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      },
+      "P7": {
+          "subjectId": "65fc2030004281106d04ff46",
+          "day": "Thursday",
+          "period": "P7",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "65fc1ee6004281106d04fef0"
+      }
+  },
+  "Friday": {
+      "P4": {
+          "subjectId": "65fc2063004281106d04ff52",
+          "day": "Friday",
+          "period": "P4",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "66051a2f7bdc19bfe313a1fc"
+      },
+      "P3": {
+          "teacherId": "66051a2f7bdc19bfe313a1fc",
+          "day": "Friday",
+          "period": "P3",
+          "classId": "65f990d84823670a61600d1e",
+          "subjectId": "65fc2063004281106d04ff52"
+      },
+      "P2": {
+          "subjectId": "65fc2063004281106d04ff52",
+          "day": "Friday",
+          "period": "P2",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "66051a447bdc19bfe313a212"
+      },
+      "P1": {
+          "subjectId": "65fc205a004281106d04ff4f",
+          "day": "Friday",
+          "period": "P1",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "66051a2f7bdc19bfe313a1fc"
+      },
+      "P5": {
+          "subjectId": "65fc205a004281106d04ff4f",
+          "day": "Friday",
+          "period": "P5",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "66051a2f7bdc19bfe313a1fc"
+      },
+      "P6": {
+          "subjectId": "65fc2063004281106d04ff52",
+          "day": "Friday",
+          "period": "P6",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "66051a2f7bdc19bfe313a1fc"
+      },
+      "P7": {
+          "subjectId": "65fc205a004281106d04ff4f",
+          "day": "Friday",
+          "period": "P7",
+          "classId": "65f990d84823670a61600d1e",
+          "teacherId": "66051a2f7bdc19bfe313a1fc"
+      }
+  }
+}
