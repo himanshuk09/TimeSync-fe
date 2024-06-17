@@ -40,6 +40,8 @@ import { getEvents } from 'src/services/events/events.service';
 import ReactApexChart from 'react-apexcharts';
 import { getSavedTimetableClassNames } from 'src/services/timetable/timetable.service';
 import { getStudentsByClassId } from 'src/services/Attendence/attendence.service';
+import { useSnackbar } from 'src/components/snackbar';
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -106,6 +108,7 @@ function createData(
 
 const Dashboard = () => {
   const { themeStretch } = useSettingsContext();
+  const { enqueueSnackbar } = useSnackbar();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const [students, setStudents] = useState([]);
@@ -131,6 +134,15 @@ const Dashboard = () => {
   useEffect(() => {
     fetchApi();
   }, []);
+
+  useEffect(() => {
+    const loginedUser = localStorage.getItem('LoginedUser');
+    if (!loginedUser) {
+      localStorage.setItem('LoginedUser', 'true');
+      enqueueSnackbar('Logged In Successfully !', { variant: 'success' });
+    }
+  }, []);
+
   const fetchApi = async () => {
     const student = await getStudents();
     const teacher = await getTeachers();

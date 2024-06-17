@@ -221,6 +221,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     dispatch({
       type: Types.LOGOUT,
     });
+    localStorage.clear();
   };
 
   return (
