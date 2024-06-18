@@ -126,12 +126,14 @@ const Attendence = () => {
   const handleStartDate = (date: any) => {
     setSelectedDate(date);
     const day = dayjs(date).format('dddd');
-    if (day == 'Saturday' || day == 'Sunday') {
+    /**
+     * if (day == 'Saturday' || day == 'Sunday') {
       enqueueSnackbar('Please select date form Monday to Friday', { variant: 'warning' });
     } else {
       const dayWiseSubjects: any = timetableByClassId.filter((item: any) => item?.day === day);
       setDayWiseSubjects(dayWiseSubjects);
     }
+     */
     setSelectedStartDate(date);
     const nextDay = date.add(1, 'day');
     const nextDate: any = dayjs(nextDay).toISOString();
